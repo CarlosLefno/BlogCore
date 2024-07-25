@@ -24,13 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="BlogCore.AccesoDatos">
-      <HintPath>..\BlogCore.AccesoDatos\obj\Debug\net8.0\BlogCore.AccesoDatos.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\BlogCore.AccesoDatos\BlogCore.AccesoDatos.csproj" />
   </ItemGroup>
 
 </Project>

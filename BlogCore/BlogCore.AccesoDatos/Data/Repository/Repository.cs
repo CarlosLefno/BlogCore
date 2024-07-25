@@ -64,7 +64,7 @@ namespace BlogCore.AccesoDatos.Data.Repository
 
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter = null, string? includeProperties = null)
+        public T GetFirstOrDefault(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             // se crea una consulta IQueryable a partir del DbSet del contexto
             IQueryable<T> query = dbSet;
