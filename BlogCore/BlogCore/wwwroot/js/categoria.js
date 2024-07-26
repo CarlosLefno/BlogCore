@@ -56,28 +56,32 @@ function cargarDatatable() {
     });
 }
 
-function Delete(url) {
-    swal({
+function Delete(url) {  
+    Swal.fire({
         title: "Esta seguro de borrar?",
         text: "Este contenido no se puede recuperar!",
-        type: "warning",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Si, borrar!",
-        closeOnconfirm: true
-    }, function () {
-        $.ajax({
-            type: 'DELETE',
-            url: url,
-            success: function (data) {
-                if (data.success) {
-                    toastr.success(data.message);
-                    dataTable.ajax.reload();
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borrar!"
+    }).then((result) => {
+        if (result.isConfirmed) {1            
+
+            $.ajax({
+                type: 'DELETE',
+                url: url,
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message);
+                        dataTable.ajax.reload();
+                    }
+                    else {
+                        toastr.error(data.message);
+                    }
                 }
-                else {
-                    toastr.error(data.message);
-                }
-            }
-        });
+            });            
+        }
     });
+    
 }
