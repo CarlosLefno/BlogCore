@@ -66,8 +66,7 @@ function Delete(url) {
         cancelButtonColor: "#d33",
         confirmButtonText: "Si, borrar!"
     }).then((result) => {
-        if (result.isConfirmed) {1            
-
+        if (result.isConfirmed) {           
             $.ajax({
                 type: 'DELETE',
                 url: url,
