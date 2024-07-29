@@ -23,7 +23,7 @@ namespace BlogCore.AccesoDatos.Data.Repository
             var objDesdeDd = _contexto.Categoria.FirstOrDefault(s => s.Id == categoria.Id);
             objDesdeDd.Nombre = categoria.Nombre;
             objDesdeDd.Orden = categoria.Orden;
-            _contexto.SaveChanges();
+         //   _contexto.SaveChanges();
 
         }
     }

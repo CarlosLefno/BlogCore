@@ -13,11 +13,13 @@ namespace BlogCore.AccesoDatos.Data.Repository
         private readonly ApplicationDbContext _db;
 
         public ICategoriaRepository Categoria { get; private set; }
+        public IArticuloRepository Articulo { get; private set; }
 
         public ContenedorTrabajo(ApplicationDbContext db)
         {
             _db = db;
             Categoria = new CategoriaRepository(_db);
+            Articulo = new ArticuloRepository(_db);
         }
 
         public void Save()
