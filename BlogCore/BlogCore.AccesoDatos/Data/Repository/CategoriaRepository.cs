@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+//using System.Web.Mvc;
 
 namespace BlogCore.AccesoDatos.Data.Repository
 {
@@ -16,6 +18,15 @@ namespace BlogCore.AccesoDatos.Data.Repository
         public CategoriaRepository(ApplicationDbContext db) : base(db)
         {
             _contexto = db;
+        }
+
+        public IEnumerable<SelectListItem> GetListaCategorias()
+        {
+            return _contexto.Categoria.Select(i => new SelectListItem()
+            {
+                Text = i.Nombre,
+                Value = i.Id.ToString()
+            });
         }
 
         public void Update(Categoria categoria)

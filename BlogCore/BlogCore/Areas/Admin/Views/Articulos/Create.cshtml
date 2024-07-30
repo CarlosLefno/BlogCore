@@ -1,0 +1,68 @@
+﻿@model BlogCore.Models.ViewModels.ArticuloVM
+
+@{
+    ViewData["Title"] = "Crear Articulo";
+}
+<br />
+<br />
+<h3 Class="text- center">Crear un nuevo articulo</h3>
+<form mehod="post" asp-action="Create" enctype="multipart/form-data" >
+    <div class="row px-2 offset-1 border">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="col-10 offset-1 mt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Articulo.Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Articulo.Nombre" class="form-control" placeholder="Ingresa el nombre de categoría" />
+                    <span asp-validation-for="Articulo.Nombre" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Articulo.Descripcion"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Articulo.Descripcion" class="form-control" placeholder="Ingresa la descripción" />
+                    <span asp-validation-for="Articulo.Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label for="Categoria">Categoria</label>
+                </div>
+                <div class="col-8">                    
+                    @Html.DropDownListFor(x => x.Articulo.CategoriaId, Model.ListaCategorias,"[Seleccione]", new { @class = "form-control" })
+                    <span asp-validation-for="Articulo.CategoriaId" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Articulo.UrlImagen"></label>
+                </div>
+                <div class="col-8">
+                    <input type="file" name="archivos" id="subidaarchivo" class="form-control" />
+                    <span asp-validation-for="Articulo.Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+            <div class="form-group-row">
+                <div class="col-8">
+                    <partial name="_VistaCrearVolver" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
