@@ -1,15 +1,17 @@
 ﻿@model BlogCore.Models.ViewModels.ArticuloVM
 
 @{
-    ViewData["Title"] = "Crear Articulo";
+    ViewData["Title"] = "Ediitar Articulo";
 }
 <br />
 <br />
-<h3 Class="text- center">Crear un nuevo articulo</h3>
-<form mehod="post" asp-action="Create" enctype="multipart/form-data">
-    <div class="row px-2 offset-1 border">
+<h3 Class="text- center">Editar un articulo</h3>
+<form mehod="post" asp-action="Edit" enctype="multipart/form-data">
+    <!-- Se envia el ID del articulo como campo oculto-->
+    <input type="hidden" asp-for="Articulo.Id" />
+    <div class="row px-2 border">
         <div asp-validation-summary="All" class="text-danger"></div>
-        <div class="col-10 offset-1 mt-4">
+        <div class="col-8  mt-4">
             <div class="form-group row">
                 <div class="col-4">
                     <label asp-for="Articulo.Nombre"></label>
@@ -39,26 +41,27 @@
                     <span asp-validation-for="Articulo.CategoriaId" class="text-danger"></span>
                 </div>
             </div>
-            <br />
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Articulo.UrlImagen"></label>
-                </div>
-                <div class="col-8">
-                    <input type="file" name="archivos" id="subidaarchivo" class="form-control" />
-                    <span asp-validation-for="Articulo.Descripcion" class="text-danger"></span>
-                </div>
-            </div>
-            <br />
             <div class="form-group-row">
                 <div class="col-8">
-                    <partial name="_VistaCrearVolver" />
+
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary form-control">Grabar Articulo</button>
+                        </div>
+                        &nbsp;
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success form-control">Volver atrás</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
         </div>
+        <div class="col-4 pt-3">
+            <img src="@Model.Articulo.UrlImagen" width="300px" style="border-radius:5px; border:1px solid #bbb9b9" />
+        </div>
     </div>
-
 </form>
 
 @section Scripts {

@@ -39,18 +39,7 @@ namespace BlogCore.Areas.Admin.Controllers
             }
             return View(categoria);
         }
-
-        //[HttpGet]
-        //public IActionResult Create(int id)
-        //{
-        //    Categoria categoria = new Categoria();
-        //    categoria = _contenedorTrabajo.Categoria.Get(id);
-        //    if (categoria is null)
-        //        return NotFound();
-
-        //    return View(categoria);
-        //}
-
+        
         [HttpGet]
         public IActionResult Edit(int id)
         {
