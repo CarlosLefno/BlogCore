@@ -6,32 +6,39 @@ $(document).ready(function () {
 
 
 function cargarDatatable() {
-    dataTable = $("#tblArticulos").DataTable({
+    dataTable = $("#tblSliders").DataTable({
         "ajax": {           
-            "url": "/admin/articulos/GetAll",
+            "url": "/admin/sliders/GetAll",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
             { "data": "id", "width": "5%" },
-            { "data": "nombre", "width": "30%" },
-            { "data": "categoria.nombre", "width": "15%" },
+            { "data": "nombre", "width": "30%" },            
+            {
+                "data": "estado",
+                "render": function (estadoactual) {
+                    if (estadoactual == true)
+                        return "activo"
+                    else
+                        return "inactivo"
+                }
+            },      
             {
                 "data": "urlImagen",
                 "render": function (imagen) {
                     return `<img src="../${imagen}">`
                 }
             },
-            { "data": "fechaCreacion", "width": "15%" },
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                                <a href="/Admin/articulos/Edit/${data}" class="btn btn-success text-white" style="cursor:pointer; width:140px;">
+                                <a href="/Admin/sliders/Edit/${data}" class="btn btn-success text-white" style="cursor:pointer; width:140px;">
                                 <i class="far fa-edit"></i> Editar
                                 </a>
                                 &nbsp;
-                                <a onclick=Delete("/Admin/articulos/Delete/${data}") class="btn btn-danger text-white" style="cursor:pointer; width:140px;">
+                                <a onclick=Delete("/Admin/sliders/Delete/${data}") class="btn btn-danger text-white" style="cursor:pointer; width:140px;">
                                 <i class="far fa-trash-alt"></i> Borrar
                                 </a>
                           </div>
