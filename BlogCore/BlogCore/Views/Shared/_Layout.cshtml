@@ -51,6 +51,12 @@
             </div>
         </nav>
     </header>
+
+    @if (ViewBag.IsHome == true)
+    {
+        <partial name="_Slider" />
+    }
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

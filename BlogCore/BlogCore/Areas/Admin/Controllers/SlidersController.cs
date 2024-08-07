@@ -121,6 +121,7 @@ namespace BlogCore.Areas.Admin.Controllers
                 {
                     //Aqui seria cuando seria cuando la imagen existe y aw conserva 
                     slider.UrlImagen = sliderDesdeBd.UrlImagen;
+                    _contenedorTrabajo.Slider.Update(slider);
                     _contenedorTrabajo.Save();
                                         
                 }
