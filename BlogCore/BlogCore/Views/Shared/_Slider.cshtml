@@ -1,4 +1,4 @@
-﻿<div id="sliderImagenes" class="carousel carousel-dark slide">
+﻿<div id="sliderImagenes" class="carousel carousel-dark slide ">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#sliderImagenes" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#sliderImagenes" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -14,15 +14,15 @@
 
             @if (item.Estado == true)
             {
-                <div class="carousel-item @itemDinamico" data-bs-interval="10000">
-                    <img src="@Url.Content(item.UrlImagen)" class="d-block w-100" alt="...">
+                <div class="carousel-item @itemDinamico" data-bs-interval="2000">
+                    <img src="@Url.Content(item.UrlImagen)" class="d-block w-100" alt="..." style="width:600px;height:600px;">
                     <div class="carousel-caption d-none d-md-block">
                         <h1 class="text-white text-center bg-dark py-1">@Html.Raw(@item.Nombre)</h1>
                         <p>""</p>
                     </div>
                 </div>
             }
-            
+
         }
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#sliderImagenes" data-bs-slide="prev">
@@ -34,3 +34,4 @@
         <span class="xvisually-hidden-focusable">Next</span>
     </button>
 </div>
+

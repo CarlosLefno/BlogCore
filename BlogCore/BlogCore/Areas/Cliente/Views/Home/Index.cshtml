@@ -5,7 +5,7 @@
 
 <div class="row mt-1">
     <diV class="col-sm-12">
-        <h1 class="text-center text-white bg-secondary py-1"">Últimos Cursos y Tutoriales</h1>
+        <h1 class="text-center text-white bg-secondary py-1">Últimos Cursos y Tutoriales</h1>
     </div>
 </div>
    
@@ -18,12 +18,12 @@
                     <div class="col-4">
                         <div class="card">
                             <div>                        
-                                <img src="@articulo.UrlImagen" class="img-thumbnail" style="width:100%" />
+                                <img src="@articulo.UrlImagen" class="img-thumbnail" style="width:100%;height:300px;" />
                                 <div class="card-body">
                                     <h5 class="text-center">@articulo.Nombre</h5>
-                                    <a asp-action="Detalle" class="btn btn-success" style="border-radius:10px" asp-route-id="@articulo.Id">
+                                    <a asp-action="Detalle" class="btn btn-success" style="border-radius:10px;" asp-route-id="@articulo.Id">
                                         Más información
-                                    </a>               
+                                    </a>                                       
                                 </div>
                             </div>            
                         </div>                
@@ -35,3 +35,4 @@ else
         {
             <p>No hay artículos</p>
         }
+

@@ -125,6 +125,7 @@ namespace BlogCore.Areas.Admin.Controllers
                 {
                     //Aqui seria cuando seria cuando la imagen existe y aw conserva 
                     ArtiVM.Articulo.UrlImagen = articuloDesdeBd.UrlImagen;
+                    _contenedorTrabajo.Articulo.Update(ArtiVM.Articulo);
                     _contenedorTrabajo.Save();
 
                     return RedirectToAction(nameof(Index));

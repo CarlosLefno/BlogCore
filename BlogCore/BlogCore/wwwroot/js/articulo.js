@@ -19,7 +19,7 @@ function cargarDatatable() {
             {
                 "data": "urlImagen",
                 "render": function (imagen) {
-                    return `<img src="../${imagen}">`
+                    return `<img src="../${imagen}"/>`
                 }
             },
             { "data": "fechaCreacion", "width": "15%" },

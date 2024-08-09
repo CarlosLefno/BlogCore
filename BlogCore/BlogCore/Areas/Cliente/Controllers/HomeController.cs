@@ -37,6 +37,15 @@ namespace BlogCore.Areas.Cliente.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Detalle(int id)
+        {
+            var articuloDesdeBd = _contenedorTrabajo.Articulo.Get(id);
+            return View(articuloDesdeBd);
+
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
