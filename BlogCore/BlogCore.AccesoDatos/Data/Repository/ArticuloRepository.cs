@@ -21,12 +21,14 @@ namespace BlogCore.AccesoDatos.Data.Repository
         public void Update(Articulo articulo)
         {
             var objDesdeDd = _contexto.Articulo.FirstOrDefault(s => s.Id == articulo.Id);
-            objDesdeDd.Nombre = articulo.Nombre;
-            objDesdeDd.Descripcion = articulo.Descripcion;
-            objDesdeDd.FechaCreacion = articulo.FechaCreacion;
-            objDesdeDd.UrlImagen = articulo.UrlImagen;
-            objDesdeDd.CategoriaId = articulo.CategoriaId;
-          //  _contexto.SaveChanges();
+            if (objDesdeDd != null)
+            {
+                objDesdeDd.Nombre = articulo.Nombre;
+                objDesdeDd.Descripcion = articulo.Descripcion;
+                objDesdeDd.FechaCreacion = articulo.FechaCreacion;
+                objDesdeDd.UrlImagen = articulo.UrlImagen;
+                objDesdeDd.CategoriaId = articulo.CategoriaId;
+            }
 
         }
     }
